@@ -54,26 +54,3 @@ class SafariViewController_test: SafariViewController {
     }
     
 }
-
-
-// safe webkit, doesnt trigger a FP
-
-import WebKit
-
-class ViewController: UIViewController, WKNavigationDelegate {
-
-    var webView: WKWebView!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        webView = WKWebView()
-        webView.navigationDelegate = self
-        view = webView
-
-        if let url = URL(string: "https://www.test.net") {
-            let request = URLRequest(url: url)
-            webView.load(request)
-        }
-    }
-}
